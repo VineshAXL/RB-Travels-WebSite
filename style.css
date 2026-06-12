@@ -1012,4 +1012,42 @@ footer p {
         min-width:900px;
     }
 }
+
+
+
+
+/* vechile over card */
+.vehicle-card{
+    position:relative;
+    overflow:hidden;
+}
+
+.price-popup{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.9);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    opacity:0;
+    transition:0.4s;
+    padding:20px;
+    text-align:center;
+}
+
+.vehicle-card:hover .price-popup{
+    opacity:1;
+}
+
+.price-popup h4{
+    margin-bottom:15px;
+}
+
+
+
 /* Tariff Section end */
+
+
+
