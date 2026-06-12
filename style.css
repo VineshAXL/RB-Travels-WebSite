@@ -34,11 +34,10 @@ html {
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;
     z-index: 1000;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -191,6 +190,7 @@ html {
 }
 
 .hero-slider {
+  
     height: 100vh;
     position: relative;
     overflow: hidden;
