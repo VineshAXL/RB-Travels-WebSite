@@ -966,3 +966,50 @@ footer p {
     text-align: center;
 }
 /* Starts end */
+
+
+/* Tariff Section */
+.tariff{
+    padding:80px 8%;
+    background:#f8fafc;
+    text-align:center;
+}
+
+.table-container{
+    overflow-x:auto;
+    margin-top:30px;
+}
+
+.tariff table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.tariff th{
+    background:#0f766e;
+    color:#fff;
+    padding:15px;
+    font-size:15px;
+}
+
+.tariff td{
+    padding:14px;
+    border:1px solid #e5e7eb;
+}
+
+.tariff tr:nth-child(even){
+    background:#f9fafb;
+}
+
+.tariff tr:hover{
+    background:#ecfeff;
+}
+
+@media(max-width:768px){
+    .tariff table{
+        min-width:900px;
+    }
+}
+/* Tariff Section end */
