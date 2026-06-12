@@ -1,49 +1,60 @@
+// ==========================
 // Hero Slider
+// ==========================
+
 const slides = document.querySelectorAll(".slide");
 
-let slideIndex = 0;
+if (slides.length > 0) {
 
-setInterval(() => {
+    let slideIndex = 0;
 
-    slides[slideIndex].classList.remove("active");
+    setInterval(() => {
 
-    slideIndex++;
+        slides[slideIndex].classList.remove("active");
 
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    }
+        slideIndex = (slideIndex + 1) % slides.length;
 
-    slides[slideIndex].classList.add("active");
+        slides[slideIndex].classList.add("active");
 
-}, 4000);
+    }, 2000);
+}
 
 
+// ==========================
 // Booking Modal
+// ==========================
+
 const modal = document.getElementById("bookingModal");
-
 const bookBtns = document.querySelectorAll(".book-btn");
-
 const closeBtn = document.querySelector(".close");
 
-bookBtns.forEach(btn => {
+if (modal && bookBtns.length > 0) {
 
-    btn.addEventListener("click", () => {
+    bookBtns.forEach(btn => {
 
-        modal.style.display = "block";
+        btn.addEventListener("click", () => {
+
+            modal.style.display = "block";
+
+        });
 
     });
 
-});
+}
 
-closeBtn.addEventListener("click", () => {
+if (closeBtn) {
 
-    modal.style.display = "none";
+    closeBtn.addEventListener("click", () => {
 
-});
+        modal.style.display = "none";
+
+    });
+
+}
 
 window.addEventListener("click", (e) => {
 
-    if (e.target === modal) {
+    if (modal && e.target === modal) {
 
         modal.style.display = "none";
 
@@ -52,80 +63,107 @@ window.addEventListener("click", (e) => {
 });
 
 
-// Testimonials
-const testimonials =
-document.querySelectorAll(".testimonial");
+// ==========================
+// Testimonials Slider
+// ==========================
 
-let testimonialIndex = 0;
+const testimonials = document.querySelectorAll(".testimonial");
 
-setInterval(() => {
+if (testimonials.length > 0) {
 
-    testimonials[testimonialIndex]
-        .classList.remove("active");
+    let testimonialIndex = 0;
 
-    testimonialIndex++;
+    setInterval(() => {
 
-    if (testimonialIndex >= testimonials.length) {
+        testimonials[testimonialIndex]
+            .classList.remove("active");
 
-        testimonialIndex = 0;
-    }
+        testimonialIndex++;
 
-    testimonials[testimonialIndex]
-        .classList.add("active");
+        if (testimonialIndex >= testimonials.length) {
 
-}, 3000);
-
-
-// Scroll Animation
-window.addEventListener("scroll", () => {
-
-    document.querySelectorAll(".reveal")
-        .forEach(item => {
-
-            let top =
-                item.getBoundingClientRect().top;
-
-            if (top < window.innerHeight - 100) {
-
-                item.classList.add("active");
-            }
-
-        });
-
-});
-
-
-const counters =
-document.querySelectorAll(".counter");
-
-counters.forEach(counter => {
-
-    const updateCounter = () => {
-
-        const target =
-        +counter.getAttribute("data-target");
-
-        const count =
-        +counter.innerText;
-
-        const increment =
-        target / 100;
-
-        if(count < target){
-
-            counter.innerText =
-            Math.ceil(count + increment);
-
-            setTimeout(updateCounter,20);
-
-        }else{
-
-            counter.innerText = target;
+            testimonialIndex = 0;
 
         }
 
-    };
+        testimonials[testimonialIndex]
+            .classList.add("active");
 
-    updateCounter();
+    }, 3000);
 
-});
+}
+
+
+// ==========================
+// Scroll Reveal Animation
+// ==========================
+
+const revealElements = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+
+    revealElements.forEach(item => {
+
+        const top = item.getBoundingClientRect().top;
+
+        if (top < window.innerHeight - 100) {
+
+            item.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+
+// ==========================
+// Counter Animation
+// ==========================
+
+const counters = document.querySelectorAll(".counter");
+
+const startCounter = () => {
+
+    counters.forEach(counter => {
+
+        const target = +counter.getAttribute("data-target");
+
+        let count = 0;
+
+        const increment = Math.ceil(target / 200);
+
+        const updateCounter = () => {
+
+            if (count < target) {
+
+                count += increment;
+
+                if (count > target) {
+
+                    count = target;
+
+                }
+
+                counter.innerText = count.toLocaleString();
+
+                setTimeout(updateCounter, 20);
+
+            } else {
+
+                counter.innerText = target.toLocaleString();
+
+            }
+
+        };
+
+        updateCounter();
+
+    });
+
+};
+
+window.addEventListener("load", startCounter);

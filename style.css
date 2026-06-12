@@ -6,10 +6,7 @@
 }
 
 body {
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.4),
-            rgba(0, 0, 0, 0.4)),
-        url("./images/insta4.jpeg");
+    background-color: white;
 
     background-size: cover;
     background-position: center;
@@ -35,13 +32,10 @@ html {
     transition: .3s;
 }
 
-.nav-links a:hover::after {
-    width: 100%;
-}
-
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
 
@@ -51,16 +45,95 @@ html {
 
     padding: 18px 8%;
 
-    background: rgba(255, 255, 255, 0.87);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 8%;
+
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
+    text-decoration: none;
     font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #ffb703;
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg,
+            #ffb703,
+            #fb8500);
+
+    color: #fff;
+    text-decoration: none;
+
+    padding: 12px 24px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
 }
 
 .logo {
@@ -99,7 +172,7 @@ html {
     position: absolute;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0);
 
     z-index: 1;
 }
@@ -141,51 +214,54 @@ html {
     object-fit: cover;
 }
 
-.hero-text {
+.hero-slider {
+    height: 100vh;
+    background: url("./images/insta2.png") center/cover;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
+}
+
+.hero-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
     text-align: center;
-    z-index: 10;
+    color: white;
+    z-index: 2;
+    width: 90%;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, .15);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-content h1 {
+    font-size: 70px;
+    margin: 20px 0;
+}
+
+.hero-content h1 span {
+    color: #ffb703;
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
 }
 
 .hero-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hero {
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828') center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-.hero-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 40px;
-    border-radius: 10px;
-}
-
-.hero-text h1 {
-    font-size: 55px;
-}
-
-.hero-text p {
-    font-size: 20px;
-    margin: 20px 0;
-}
-
-.hero p {
-    margin: 20px 0;
-    font-size: 20px;
 }
 
 .card span {
@@ -203,66 +279,123 @@ html {
     margin-left: 10px;
     border-radius: 5px;
 }
+/* package start */
 
 .packages {
-    padding: 100px 8%;
+
+  padding: 60px 20px;
+  text-align: center;
+
 }
 
 .packages h2 {
-    text-align: center;
-    margin-bottom: 40px;
+  font-size: 32px;
+  color: #222;
+  
 }
 
 .package-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
 }
+
+/* CARD BASE */
 
 .card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
-}
-
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.card h3,
-.card p,
-.card span {
-    padding: 10px 20px;
-}
-
-.card {
-    transition: .4s;
-    cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
 }
 
 .card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
 .card img {
-    transition: .5s;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
 }
 
-.card:hover img {
-    transform: scale(1.08);
+/* CONTENT */
+.card-content {
+  padding: 15px;
 }
 
-.card button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background: #0d6efd;
-    color: white;
-    cursor: pointer;
+.card-content h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.card-content p {
+  color: #666;
+}
+
+/* LIST */
+.card-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.card-content ul li {
+  font-size: 14px;
+  padding: 4px 0;
+  color: #444;
+}
+
+/* BUTTON */
+.book-btn {
+  background: linear-gradient(45deg, #ff512f, #dd2476);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  
+
+}
+
+.book-btn:hover {
+  opacity: 0.9;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 20px;
+  color: white;
+  margin-bottom: 8px;
+}
+
+/* COLOR THEMES */
+.card.ooty .badge {
+  background: #00bcd4;
+}
+
+.card.kodaikanal .badge {
+  background: #ff9800;
+}
+
+.card.kerala .badge {
+  background: #4caf50;
+}
+ /*  package end*/
+
+.featured{
+    border:3px solid #ff9800;
 }
 
 .modal {
@@ -409,9 +542,22 @@ footer p {
         display: none;
     }
 
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
 }
-
-
 
 /* Testimonials */
 
@@ -523,6 +669,7 @@ footer p {
 
 .btn,
 .book-btn {
+    
     background: linear-gradient(135deg,
             #0d6efd,
             #198754);
@@ -543,160 +690,88 @@ footer p {
 }
 
 /* Vehicle Fleet */
-
 .vehicles {
-    padding: 100px 8%;
-    background: #ffffff;
-}
-
-.vehicles h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 36px;
-}
-
-.vehicle-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 30px;
-}
-
-.vehicle-card {
-    background: #fff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
-    transition: .4s;
-    text-align: center;
-}
-
-.vehicle-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
-}
-
-.vehicle-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    transition: .5s;
-}
-
-.vehicle-card:hover img {
-    transform: scale(1.08);
-}
-
-.vehicle-card h3 {
-    margin-top: 15px;
-    font-size: 24px;
-}
-
-.vehicle-card p {
-    padding: 10px 20px;
-    color: #666;
-}
-
-.vehicle-card button {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    background: linear-gradient(135deg, #0d6efd, #198754);
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.vehicles {
-    padding: 100px 8%;
-    background: #f8fafc;
-}
-
-.vehicles h2 {
-    text-align: center;
-    font-size: 40px;
-    margin-bottom: 10px;
+  padding: 60px 20px;
+  text-align: center;
+  background: #f5f7fa;
 }
 
 .vehicle-subtitle {
-    text-align: center;
-    color: #666;
-    margin-bottom: 50px;
+  color: #666;
+  margin-bottom: 30px;
 }
 
 .vehicle-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
 }
 
 .vehicle-card {
-    background: white;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
-    transition: .4s;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
 .vehicle-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+  transform: translateY(-8px);
 }
 
-.vehicle-image {
-    position: relative;
-    overflow: hidden;
-}
-
-.vehicle-image img {
-    width: 100%;
-    height: 240px;
-    object-fit: cover;
-    transition: .5s;
-}
-
-.vehicle-card:hover img {
-    transform: scale(1.1);
-}
-
-.badge {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: #ff9800;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 30px;
-    font-size: 12px;
-    font-weight: 600;
-    z-index: 10;
+.vehicle-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .vehicle-content {
-    padding: 25px;
+  padding: 15px;
 }
 
 .vehicle-content h3 {
-    margin-bottom: 15px;
+  margin: 10px 0;
+  font-size: 20px;
 }
 
-.vehicle-content ul {
-    list-style: none;
-    margin-bottom: 20px;
+.vehicle-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
-.vehicle-content ul li {
-    margin: 8px 0;
-    color: #555;
+.vehicle-content h2 {
+  color: #e63946;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Buttons */
+.book-btn, .callback-btn {
+  display: block;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .book-btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: 600;
+  background: #25D366;
+  color: white;
 }
+
+.callback-btn {
+  background: #007bff;
+  color: white;
+}
+/* vechile end */
 
 .tour-card {
     background: #fff;
