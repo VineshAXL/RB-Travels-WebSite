@@ -1076,6 +1076,37 @@ footer p {
 /* Tariff Section end */
 
 
+@media(max-width:768px) {
+
+    .hero-text h1 {
+        font-size: 35px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .logo{
+        font-size:24px;
+    }
+
+}
+
 @media (max-width:768px){
 
     .top-bar{
