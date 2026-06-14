@@ -167,3 +167,4 @@ const startCounter = () => {
 };
 
 window.addEventListener("load", startCounter);
+

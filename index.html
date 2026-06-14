@@ -20,8 +20,9 @@
 
         <!-- Top Contact Bar -->
         <div class="top-bar">
-            <br>
-            <p>📞 +91 99520 30904 / +91 9677235777 | 📧 info@rbtravels.in</p>
+
+            <h3>📞 +91 99520 30904 / +91 9677235777 <br>📞 044-4644 4514 / 044-4686 3969</h3>
+
         </div>
 
         <!-- Main Navbar -->
@@ -52,16 +53,16 @@
         </div>
 
         <div class="slide">
-            <img src="./images/hero2.webp" alt="">
+            <!-- <img src="./images/hero2.webp" alt=""> -->
         </div>
 
         <div class="slide">
-             <img src="./images/hero3.avif" alt="">
+            <img src="./images/hero3.avif" alt="">
         </div>
 
-        
+
         <div class="slide">
-             <img src="./images/hero4.webp" alt="">
+            <img src="./images/hero4.webp" alt="">
         </div>
 
 
@@ -91,6 +92,7 @@
                 <a href="#vehicles" class="btn-outline">
                     View Vehicles
                 </a>
+                <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
 
             </div>
 
@@ -384,7 +386,7 @@
                     <a href="tel:+919952030904" class="callback-btn book-btn">Request Callback</a>
                 </div>
             </div>
-               <div class="vehicle-card">
+            <div class="vehicle-card">
                 <img src="./images/hondaamaze.webp" alt="Honda Amaze">
                 <div class="price-popup">
                     <h4>Tariff Details</h4>
@@ -684,7 +686,7 @@
                 </div>
             </div>
 
-              <div class="vehicle-card">
+            <div class="vehicle-card">
                 <img src="./images/tempo18.avif" alt="Tempo Traveller">
                 <div class="price-popup">
                     <p>5 Hrs / 50 Km - ₹3500</p>
@@ -1066,7 +1068,36 @@
         WhatsApp
     </a>
 
+
     <script src="script.js"></script>
+
+
+    <audio id="bgMusic" autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        const music = document.getElementById("bgMusic");
+        const btn = document.getElementById("musicBtn");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "⏸ Stop Music";
+                btn.style.background = "#dc2626"; // Red while playing
+            } else {
+                music.pause();
+                btn.innerHTML = "🎵 Play Music";
+                btn.style.background = "#16a34a"; // Green when stopped
+            }
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            var music = document.getElementById("bgMusic");
+
+            music.volume = 0.08; // 8% volume
+        };
+    </script>
 </body>
 
 </html>
