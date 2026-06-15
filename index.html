@@ -92,8 +92,8 @@
                 <a href="#vehicles" class="btn-outline">
                     View Vehicles
                 </a>
-                <button id="musicBtn" onclick="toggleMusic()">🎵 Play Music</button>
-
+                <button id="musicBtn" onclick="toggleMusic()">⏸ Stop Music</button>
+                
             </div>
 
         </div>
@@ -1078,25 +1078,34 @@
     <script>
         const music = document.getElementById("bgMusic");
         const btn = document.getElementById("musicBtn");
+window.onload = () => {
+    music.play();
+     music.volume = 0.15; // 5% volume
+};
+     /*
+    // Page load ஆனதும்
+    window.onload = function () {
+        music.volume = 0.15; // 5% volume
 
-        function toggleMusic() {
-            if (music.paused) {
-                music.play();
-                btn.innerHTML = "⏸ Stop Music";
-                btn.style.background = "#dc2626"; // Red while playing
-            } else {
-                music.pause();
-                btn.innerHTML = "🎵 Play Music";
-                btn.style.background = "#16a34a"; // Green when stopped
-            }
+        // Auto play முயற்சி
+        music.play().catch(() => {
+            btn.innerHTML = "🎵 Play Music";
+            btn.style.background = "#16a34a";
+        });
+    };
+
+  */  function toggleMusic() {
+        if (music.paused) {
+            music.play();
+            btn.innerHTML = "⏸ Stop Music";
+            btn.style.background = "#dc2626";
+        } else {
+            music.pause();
+            btn.innerHTML = "🎵 Play Music";
+            btn.style.background = "#16a34a";
         }
-    </script>
-    <script>
-        window.onload = function () {
-            var music = document.getElementById("bgMusic");
-
-            music.volume = 0.10; // 20% volume
-        };
+    }
+        //*/
     </script>
 </body>
 
