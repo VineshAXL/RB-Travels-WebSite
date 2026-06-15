@@ -93,7 +93,7 @@
                     View Vehicles
                 </a>
                 <button id="musicBtn" onclick="toggleMusic()">⏸ Stop Music</button>
-                
+
             </div>
 
         </div>
@@ -1073,38 +1073,33 @@
 
 
     <audio id="bgMusic" autoplay loop>
-        <source src="music.mp3" type="audio/mpeg">
+        <source src="./music.mp3" type="audio/mpeg">
     </audio>
     <script>
         const music = document.getElementById("bgMusic");
         const btn = document.getElementById("musicBtn");
-window.onload = () => {
-    music.play();
-     music.volume = 0.15; // 5% volume
-};
-     /*
-    // Page load ஆனதும்
-    window.onload = function () {
-        music.volume = 0.15; // 5% volume
 
-        // Auto play முயற்சி
-        music.play().catch(() => {
-            btn.innerHTML = "🎵 Play Music";
-            btn.style.background = "#16a34a";
-        });
-    };
-
-  */  function toggleMusic() {
-        if (music.paused) {
+        window.onload = () => {
             music.play();
-            btn.innerHTML = "⏸ Stop Music";
-            btn.style.background = "#dc2626";
-        } else {
-            music.pause();
-            btn.innerHTML = "🎵 Play Music";
-            btn.style.background = "#16a34a";
+            music.volume = 0.20; // 20% volume
+
+            music.play().catch(() => {
+                btn.innerHTML = "🎵 Play Music";
+                btn.style.background = "#16a34a";
+            });
+        };
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                btn.innerHTML = "⏸ Stop Music";
+                btn.style.background = "#dc2626";
+            } else {
+                music.pause();
+                btn.innerHTML = "🎵 Play Music";
+                btn.style.background = "#16a34a";
+            }
         }
-    }
         //*/
     </script>
 </body>
