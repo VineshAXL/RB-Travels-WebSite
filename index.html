@@ -1075,32 +1075,39 @@
     <audio id="bgMusic" autoplay loop>
         <source src="./music.mp3" type="audio/mpeg">
     </audio>
+
     <script>
         const music = document.getElementById("bgMusic");
         const btn = document.getElementById("musicBtn");
+        //auto play music on page load with 20% volume, and change button text to "Stop Music"  
 
-        window.onload = () => {
-            music.play();
-            music.volume = 0.20; // 20% volume
+        window.onload = function () {
+            music.volume = 0.2;
 
-            music.play().catch(() => {
-                btn.innerHTML = "🎵 Play Music";
-                btn.style.background = "#16a34a";
-            });
+            music.play()
+                .then(() => {
+                    btn.textContent = "Stop Music";
+                    btn.style.background = "#dc2626";
+                })
+                .catch(() => {
+                    btn.textContent = "Play Music";
+                    btn.style.background = "#16a34a";
+                });
         };
 
-        function toggleMusic() {
+        btn.addEventListener("click", function () {
             if (music.paused) {
                 music.play();
-                btn.innerHTML = "⏸ Stop Music";
+                btn.textContent = "Stop Music";
                 btn.style.background = "#dc2626";
             } else {
                 music.pause();
-                btn.innerHTML = "🎵 Play Music";
+                btn.textContent = "Play Music";
                 btn.style.background = "#16a34a";
             }
-        }
-        //*/
+        });
+
+
     </script>
 </body>
 
