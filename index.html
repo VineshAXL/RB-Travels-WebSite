@@ -1081,7 +1081,7 @@
         const btn = document.getElementById("musicBtn");
         //auto play music on page load with 20% volume, and change button text to "Stop Music"  
 
-        window.onload = function () {
+       // window.onload = function () {
             music.volume = 0.2;
 
             music.play()
@@ -1093,7 +1093,7 @@
                     btn.textContent = "Play Music";
                     btn.style.background = "#16a34a";
                 });
-        };
+       // };
 
         btn.addEventListener("click", function () {
             if (music.paused) {
